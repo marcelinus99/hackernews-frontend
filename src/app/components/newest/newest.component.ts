@@ -21,8 +21,8 @@ export class NewestComponent implements OnInit {
 
   get getPosts(){
     return this.posts;
-
   }
+  
   ngOnInit(): void {
   }
 

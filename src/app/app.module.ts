@@ -9,14 +9,17 @@ import { AskComponent } from './components/ask/ask.component';
 import { Routes, RouterModule} from '@angular/router';
 import { NewsComponent } from './components/news/news.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NewestComponent } from './components/newest/newest.component'
+import { NewestComponent } from './components/newest/newest.component';
+import { UserComponent } from './components/user/user.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component'
 
 
 const routes: Routes = [
   {path: '', component: NewestComponent},
-  {path: 'newest', component: NewestComponent},
-  {path: 'news', component: NewsComponent},
-  {path: 'ask', component: AskComponent}
+  {path: 'newest', component: NewsComponent},
+  {path: 'news', component: NewestComponent},
+  {path: 'ask', component: AskComponent},
+  {path: 'user/:id', component: UserComponent}
  
 ];
 
@@ -28,7 +31,9 @@ const routes: Routes = [
     AskComponent,
     NewsComponent,
     HeaderComponent,
-    NewestComponent
+    NewestComponent,
+    UserComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

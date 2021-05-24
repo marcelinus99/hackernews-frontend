@@ -13,7 +13,6 @@ export class PostComponent{
 }
 
 export type Post = {
-
     id: number | undefined,
     title: string | undefined,
     tipo: string | undefined,

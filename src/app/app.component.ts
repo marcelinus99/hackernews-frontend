@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { PostServiceService } from './services/post/post-service.service';
-import { Post } from './components/post/post.component';
-
 
 
 @Component({
