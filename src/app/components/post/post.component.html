@@ -1,7 +1,34 @@
+<div class="wrapper">
+    		
+    		<div class="card radius shadowDepth1">
+    			
 
-    <h2>{{content?.title}}</h2>
-    <h2>{{content?.url}}</h2>
-    <h2>{{content?.tipo}}</h2>
-    <h2>{{content?.text}}</h2>
+    			<div class="card__content card__padding">
+                    
+    				<div class="card__meta">
+    					<a href="{{content?.url}}">{{content?.url}}</a>
+                        <time>{{content?.created_at}}</time>
+    				
+    				<article class="card__article">
+	    				<h2>
+							<a href="{{content?.url}}"> {{content?.title}} </a>
+							
+						</h2>
+					
 
+	    				<p>{{content?.upvotes}} by {{content?.user_id}} {{content?.created_at}}</p>
+	    			</article>
+    			</div>
+
+    			<div class="card__action">
+    				
+    				<div class="card__author">
+    					<img src="http://lorempixel.com/40/40/sports/" alt="user">
+    					<div class="card__author-content">
+    						By <a href="#">John Doe</a>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
 

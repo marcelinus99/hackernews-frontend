@@ -3,7 +3,8 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'post',
-  templateUrl: './post.component.html'
+  templateUrl: './post.component.html',
+  styleUrls: ['./post.component.css']
 })
 
 export class PostComponent{
@@ -17,6 +18,8 @@ export type Post = {
     title: string | undefined,
     tipo: string | undefined,
     url: string | undefined,
-    text: string | undefined
-
+    text: string | undefined,
+    upvotes: string | undefined,
+    created_at: string | undefined,
+    user_id: number | undefined
 }
