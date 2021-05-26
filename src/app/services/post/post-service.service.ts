@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
 import { Post } from 'src/app/components/post/post.component';
 
 @Injectable({
@@ -31,6 +31,20 @@ export class PostServiceService {
   
     return this.http.get<Post[]>(url, {headers: headers});
   }
+
+  getPost(id:any) {
+    
+    let url = 'https://hackernews-2020-21.herokuapp.com/posts/'+ id;
+    
+    const headers = new HttpHeaders({
+      
+      Accept: 'application/json'
+    
+    });
+  
+    return this.http.get<Post>(url, {headers: headers});
+  }
+
 
   getAsk(){
     let url = 'https://hackernews-2020-21.herokuapp.com/ask';

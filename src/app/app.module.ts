@@ -11,7 +11,9 @@ import { NewsComponent } from './components/news/news.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NewestComponent } from './components/newest/newest.component';
 import { UserComponent } from './components/user/user.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component'
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { PostShowComponent } from './components/post-show/post-show.component';
+import { CommentComponent } from './components/comment/comment.component'
 
 
 const routes: Routes = [
@@ -19,6 +21,7 @@ const routes: Routes = [
   {path: 'newest', component: NewsComponent},
   {path: 'news', component: NewestComponent},
   {path: 'ask', component: AskComponent},
+  {path: 'post/:id', component: PostShowComponent},
   {path: 'user/:id', component: UserComponent}
  
 ];
@@ -33,7 +36,9 @@ const routes: Routes = [
     HeaderComponent,
     NewestComponent,
     UserComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PostShowComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
