@@ -18,6 +18,7 @@ import { UserCommentsComponent } from './components/user-comments/user-comments.
 import { UserSubmissionsComponent } from './components/user-submissions/user-submissions.component';
 import { UpvotedCommentsComponent } from './components/upvoted-comments/upvoted-comments.component';
 import { UpvotedSubmissionsComponent } from './components/upvoted-submissions/upvoted-submissions.component';
+import { SubmitFormComponent } from './components/submit-form/submit-form.component';
 
 
 const routes: Routes = [
@@ -31,8 +32,8 @@ const routes: Routes = [
   {path: 'threads', redirectTo: '/user_comments/1', pathMatch: 'full'},
   {path: 'submissions/:id', component: UserSubmissionsComponent},
   {path: 'upvoted/comments/:id', component: UpvotedCommentsComponent},
-  {path: 'upvoted/submissions/:id', component: UpvotedSubmissionsComponent}
- 
+  {path: 'upvoted/submissions/:id', component: UpvotedSubmissionsComponent},
+  {path: 'submit', component: SubmitFormComponent}
 ];
 
 
@@ -51,7 +52,8 @@ const routes: Routes = [
     UpvotedCommentsComponent,
     UserSubmissionsComponent,
     UserCommentsComponent,
-    CommentComponent
+    CommentComponent,
+    SubmitFormComponent
   ],
   imports: [
     BrowserModule,
