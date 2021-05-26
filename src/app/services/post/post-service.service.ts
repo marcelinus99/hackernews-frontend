@@ -72,18 +72,4 @@ export class PostServiceService {
   
     return this.http.get<Post[]>(url, {headers: headers});
   }
-
-  getMyProfile() {
-    
-    let url = 'https://hackernews-2020-21.herokuapp.com/users/1';
-
-    const headers = new HttpHeaders({
-      
-      Accept: 'application/json'
-    
-    });
-      
-    return this.http.get<User>(url, {headers: headers});
-  }
-
 }

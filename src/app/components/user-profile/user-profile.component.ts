@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { PostServiceService } from 'src/app/services/post/post-service.service';
+import { UserServiceService } from 'src/app/services/user/user-service.service';
 import { User } from '../user/user.component';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-user-profile',
@@ -11,17 +12,18 @@ import { User } from '../user/user.component';
 export class UserProfileComponent {
   private users: User | undefined;
 
-  constructor(private postService:PostServiceService){
+  constructor(private userService:UserServiceService, private route: ActivatedRoute){
 
-    this.postService.getMyProfile().subscribe(data=>{
+    this.route.params.subscribe( params => {
+
+    this.userService.getMyProfile(params['id']).subscribe(data=>{
         this.users=data;
     })
 
-  }
+  } );
+}
 
   get getUser(){
     return this.users;
   }
-  
-
 }
