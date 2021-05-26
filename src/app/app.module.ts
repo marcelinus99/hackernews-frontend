@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'news', component: NewestComponent},
   {path: 'ask', component: AskComponent},
   {path: 'post/:id', component: PostShowComponent},
-  {path: 'user/:id', component: UserComponent}
+  {path: 'user/:id', component: UserProfileComponent}
  
 ];
 

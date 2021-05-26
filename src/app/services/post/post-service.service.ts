@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
 import { Post } from 'src/app/components/post/post.component';
 import { Comment } from 'src/app/components/comment/comment.component';
+import { User } from 'src/app/components/user/user.component';
 
 @Injectable({
   providedIn: 'root'
@@ -70,6 +71,19 @@ export class PostServiceService {
     });
   
     return this.http.get<Post[]>(url, {headers: headers});
+  }
+
+  getMyProfile() {
+    
+    let url = 'https://hackernews-2020-21.herokuapp.com/users/1';
+
+    const headers = new HttpHeaders({
+      
+      Accept: 'application/json'
+    
+    });
+      
+    return this.http.get<User>(url, {headers: headers});
   }
 
 }
