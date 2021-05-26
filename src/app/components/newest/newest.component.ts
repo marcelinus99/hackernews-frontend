@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PostServiceService } from 'src/app/services/post/post-service.service';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
 import { Post } from '../post/post.component';
@@ -8,7 +8,8 @@ import { Post } from '../post/post.component';
   templateUrl: './newest.component.html',
   styleUrls: ['./newest.component.css']
 })
-export class NewestComponent implements OnInit {
+
+export class NewestComponent {
 
   private posts: Post[] = [];
 
@@ -29,9 +30,6 @@ export class NewestComponent implements OnInit {
 
   get getPosts(){
     return this.posts;
-  }
-  
-  ngOnInit(): void {
   }
 
 }

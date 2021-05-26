@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
 import { Post } from 'src/app/components/post/post.component';
 import { Comment } from 'src/app/components/comment/comment.component';
-import { User } from 'src/app/components/user/user.component';
 
 @Injectable({
   providedIn: 'root'

@@ -37,7 +37,7 @@ export class UpvotedSubmissionsComponent {
       //return this.user;
   //}
   
-  get getPosts(){
+  get getUserSubmissions(){
     return this.posts;
   }
 }

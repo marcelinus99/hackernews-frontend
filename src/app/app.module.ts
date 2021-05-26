@@ -28,6 +28,7 @@ const routes: Routes = [
   {path: 'post/:id', component: PostShowComponent},
   {path: 'user/:id', component: UserProfileComponent},
   {path: 'user_comments/:id', component: UserCommentsComponent},
+  {path: 'threads', redirectTo: '/user_comments/1', pathMatch: 'full'},
   {path: 'submissions/:id', component: UserSubmissionsComponent},
   {path: 'upvoted/comments/:id', component: UpvotedCommentsComponent},
   {path: 'upvoted/submissions/:id', component: UpvotedSubmissionsComponent}
@@ -46,6 +47,10 @@ const routes: Routes = [
     UserComponent,
     UserProfileComponent,
     PostShowComponent,
+    UpvotedSubmissionsComponent,
+    UpvotedCommentsComponent,
+    UserSubmissionsComponent,
+    UserCommentsComponent,
     CommentComponent
   ],
   imports: [

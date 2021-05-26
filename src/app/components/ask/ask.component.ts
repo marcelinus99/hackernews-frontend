@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { PostServiceService } from 'src/app/services/post/post-service.service';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
 import { Post } from '../post/post.component';
@@ -31,9 +31,6 @@ export class AskComponent  {
 
   get getPosts(){
     return this.posts;
-  }
-
-  ngOnInit(): void {
   }
 
 }
