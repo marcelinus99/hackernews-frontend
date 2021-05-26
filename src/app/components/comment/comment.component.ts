@@ -18,6 +18,8 @@ export type Comment = {
   post_id: number | undefined,
   created_at: string | undefined,
   updated_at: string | undefined,
-  parent_id: number | undefined
+  parent_id: number | undefined,
+  full_name: string |undefined,
+  image: string | undefined
 }
 

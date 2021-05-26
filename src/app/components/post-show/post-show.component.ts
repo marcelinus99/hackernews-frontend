@@ -31,6 +31,15 @@ export class PostShowComponent {
 
     this.postService.getPostComment(params['id']).subscribe(data=>{
         this.comments=data;
+        var p = this.comments;
+        p.forEach(comment => {
+          if(comment.user_id)
+          this.userService.getMyProfile(comment.user_id).subscribe(data=>{
+            comment.full_name = data.full_name;
+            comment.image = data.avatar_url;
+          })
+        });
+
     })
 
     } );
