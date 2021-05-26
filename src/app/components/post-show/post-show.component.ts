@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostServiceService } from 'src/app/services/post/post-service.service';
 import { Post } from '../post/post.component';
+import { Comment } from '../comment/comment.component';
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -11,7 +12,7 @@ import {ActivatedRoute} from "@angular/router";
 export class PostShowComponent {
 
   private post: Post | undefined;
-
+  private comments: Comment[] = []; 
   
   constructor(private postService:PostServiceService, private route: ActivatedRoute){
     
@@ -21,12 +22,20 @@ export class PostShowComponent {
         this.post=data;
     })
 
+    this.postService.getPostComment(params['id']).subscribe(data=>{
+        this.comments=data;
+    })
+
     } );
 
   }
 
   get getPost(){
     return this.post;
+  }
+
+  get getPostComments(){
+    return this.comments;
   }
 }
 

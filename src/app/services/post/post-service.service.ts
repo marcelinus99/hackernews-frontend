@@ -1,11 +1,25 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
 import { Post } from 'src/app/components/post/post.component';
+import { Comment } from 'src/app/components/comment/comment.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostServiceService {
+  
+  getPostComment(id: any) {
+    
+    let url = 'https://hackernews-2020-21.herokuapp.com/posts/'+ id + '/comments';
+    
+    const headers = new HttpHeaders({
+      
+      Accept: 'application/json'
+    
+    });
+  
+    return this.http.get<Comment[]>(url, {headers: headers});  }
+
   getNewest() {
     let url = 'https://hackernews-2020-21.herokuapp.com/newest';
 

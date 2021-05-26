@@ -3,6 +3,7 @@
 <div>
 
   <post [content]="getPost" > </post>
-  <comments></comments>
   
+  <comments *ngFor="let comment of getPostComments" [content]="comment"></comments>
+
 </div>
