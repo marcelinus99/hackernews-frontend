@@ -4,12 +4,14 @@
 			<li>
 				<div class="comment-main-level">
 					<!-- Avatar -->
-					<div class="comment-avatar"><img src="{{content?.image}}" alt=""></div>
+					<div class="comment-avatar">
+						<a href="/user/{{content?.user_id}}"><img src="{{content?.image}}" alt=""></a>
+					</div>
 					<!-- Contenedor del Comentario -->
 					<div class="comment-box">
 						<div class="comment-head">
 							<h6 class="comment-name by-author"><a href="/user/{{content?.user_id}}">{{content?.full_name}}</a></h6>
-							<span>{{content?.created_at}}</span>
+							<span>{{content?.created_at | date:'medium'}}</span>
 							<i class="fa fa-reply"></i>
 							<i class="fa fa-heart"></i>
 						</div>

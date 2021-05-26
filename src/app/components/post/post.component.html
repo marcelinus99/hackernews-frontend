@@ -2,31 +2,34 @@
     		
     		<div class="card radius shadowDepth1">
     			
-
     			<div class="card__content card__padding">
                     
-    				<div class="card__meta">
-    					<a href="{{content?.url}}">{{content?.url}}</a>
-                        <time>{{content?.created_at}}</time>
-    				
+				<div class="card__meta">
     				<article class="card__article">
 	    				<h2>
-							<a href="post/{{content?.id}}"> {{content?.title}} </a>			
+							<a href="post/{{content?.id}}"> {{content?.title}} </a> 
+							<time>{{content?.created_at | date:'medium'}} </time>
 						</h2>
-	    				<p>{{content?.upvotes}} likes </p>
-						<br>
+
 	    			</article>
     			</div>
 
-    			<div class="card__action">
     				
     				<div class="card__author">
-    					<img src="{{content?.image}}" alt="user">
+						<br>
+						<a href="{{content?.url}}">{{content?.url}}</a>
+						<br>
+						<br>
+						
+						<p>{{content?.upvotes}} people liked this post </p>
+
+						<br>
+
+						<a href="/user/{{content?.user_id}}"><img src="{{content?.image}}" alt=""></a>
     					<div class="card__author-content">
     						By <a href="/user/{{content?.user_id}}">{{content?.full_name}}</a>
     					</div>
     				</div>
-    			</div>
     		</div>
     	</div>
 
