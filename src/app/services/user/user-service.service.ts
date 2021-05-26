@@ -10,7 +10,7 @@ export class UserServiceService {
 
   constructor(private http:HttpClient) { }
 
-  getMyProfile(id : any) {
+  getMyProfile(id : number) {
     
     let url = 'https://hackernews-2020-21.herokuapp.com/users/'+ id;
 

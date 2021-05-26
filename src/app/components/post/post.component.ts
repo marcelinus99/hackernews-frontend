@@ -20,5 +20,7 @@ export type Post = {
     text: string | undefined,
     upvotes: string | undefined,
     created_at: string | undefined,
-    user_id: number | undefined
+    user_id: number | undefined,
+    full_name: string | undefined,
+    image: string | undefined
 }

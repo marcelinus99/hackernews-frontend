@@ -9,7 +9,7 @@ import { User } from 'src/app/components/user/user.component';
 })
 export class PostServiceService {
   
-  getPostComment(id: any) {
+  getPostComment(id: number) {
     
     let url = 'https://hackernews-2020-21.herokuapp.com/posts/'+ id + '/comments';
     
@@ -47,7 +47,7 @@ export class PostServiceService {
     return this.http.get<Post[]>(url, {headers: headers});
   }
 
-  getPost(id:any) {
+  getPost(id:number) {
     
     let url = 'https://hackernews-2020-21.herokuapp.com/posts/'+ id;
     
