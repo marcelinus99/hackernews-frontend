@@ -9,6 +9,7 @@ import { Component, Input } from '@angular/core';
 export class UserComponent{
   @Input()
   content: User | undefined; 
+  condition = 1;
 }
 
 export type User = {

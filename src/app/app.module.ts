@@ -14,6 +14,10 @@ import { UserComponent } from './components/user/user.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { PostShowComponent } from './components/post-show/post-show.component';
 import { CommentComponent } from './components/comment/comment.component'
+import { UserCommentsComponent } from './components/user-comments/user-comments.component';
+import { UserSubmissionsComponent } from './components/user-submissions/user-submissions.component';
+import { UpvotedCommentsComponent } from './components/upvoted-comments/upvoted-comments.component';
+import { UpvotedSubmissionsComponent } from './components/upvoted-submissions/upvoted-submissions.component';
 
 
 const routes: Routes = [
@@ -22,7 +26,11 @@ const routes: Routes = [
   {path: 'news', component: NewestComponent},
   {path: 'ask', component: AskComponent},
   {path: 'post/:id', component: PostShowComponent},
-  {path: 'user/:id', component: UserProfileComponent}
+  {path: 'user/:id', component: UserProfileComponent},
+  {path: 'user_comments/:id', component: UserCommentsComponent},
+  {path: 'submissions/:id', component: UserSubmissionsComponent},
+  {path: 'upvoted/comments/:id', component: UpvotedCommentsComponent},
+  {path: 'upvoted/submissions/:id', component: UpvotedSubmissionsComponent}
  
 ];
 

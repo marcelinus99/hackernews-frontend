@@ -21,55 +21,106 @@ export class PostServiceService {
   
     return this.http.get<Comment[]>(url, {headers: headers});  }
 
-  getNewest() {
-    let url = 'https://hackernews-2020-21.herokuapp.com/newest';
-
-    const headers = new HttpHeaders({
+    
+    getUserComments(id:number){
+      let url = 'https://hackernews-2020-21.herokuapp.com/comments/' + id;
+  
+      const headers = new HttpHeaders({
+        
+        Accept: 'application/json'
       
-      Accept: 'application/json'
+      });
     
-    });
-  
-    return this.http.get<Post[]>(url, {headers: headers});
-  }
+      return this.http.get<Comment[]>(url, {headers: headers});
+    }
 
-  constructor(private http:HttpClient){ }
+    getUpvotedComments(id:number){
+      let url = 'https://hackernews-2020-21.herokuapp.com/upvoted/comments/' + id;
   
-  getNews(){
-    let url = 'https://hackernews-2020-21.herokuapp.com/news';
-
-    const headers = new HttpHeaders({
+      const headers = new HttpHeaders({
+        
+        Accept: 'application/json'
       
-      Accept: 'application/json'
+      });
     
-    });
-  
-    return this.http.get<Post[]>(url, {headers: headers});
-  }
-
-  getPost(id:number) {
-    
-    let url = 'https://hackernews-2020-21.herokuapp.com/posts/'+ id;
-    
-    const headers = new HttpHeaders({
+      return this.http.get<Comment[]>(url, {headers: headers});
+    }
       
-      Accept: 'application/json'
-    
-    });
-  
-    return this.http.get<Post>(url, {headers: headers});
-  }
+    getUserSubmissions(id:number){
+      let url = 'https://hackernews-2020-21.herokuapp.com/submissions/' + id;
 
-
-  getAsk(){
-    let url = 'https://hackernews-2020-21.herokuapp.com/ask';
-
-    const headers = new HttpHeaders({
+      const headers = new HttpHeaders({
+        
+        Accept: 'application/json'
       
-      Accept: 'application/json'
+      });
     
-    });
-  
-    return this.http.get<Post[]>(url, {headers: headers});
-  }
+      return this.http.get<Post[]>(url, {headers: headers});
+    }
+
+    getUpvotedSubmissions(id:number){
+      let url = 'https://hackernews-2020-21.herokuapp.com/upvoted/submissions/' + id;
+
+      const headers = new HttpHeaders({
+        
+        Accept: 'application/json'
+      
+      });
+    
+      return this.http.get<Post[]>(url, {headers: headers});
+    }
+
+    getNewest() {
+      let url = 'https://hackernews-2020-21.herokuapp.com/newest';
+
+      const headers = new HttpHeaders({
+        
+        Accept: 'application/json'
+      
+      });
+    
+      return this.http.get<Post[]>(url, {headers: headers});
+    }
+
+    constructor(private http:HttpClient){ }
+    
+    getNews(){
+      let url = 'https://hackernews-2020-21.herokuapp.com/news';
+
+      const headers = new HttpHeaders({
+        
+        Accept: 'application/json'
+      
+      });
+    
+      return this.http.get<Post[]>(url, {headers: headers});
+    }
+
+    getPost(id:number) {
+      
+      let url = 'https://hackernews-2020-21.herokuapp.com/posts/'+ id;
+      
+      const headers = new HttpHeaders({
+        
+        Accept: 'application/json'
+      
+      });
+    
+      return this.http.get<Post>(url, {headers: headers});
+    }
+
+
+    getAsk(){
+      let url = 'https://hackernews-2020-21.herokuapp.com/ask';
+
+      const headers = new HttpHeaders({
+        
+        Accept: 'application/json'
+      
+      });
+    
+      return this.http.get<Post[]>(url, {headers: headers});
+    }
+
+
 }
