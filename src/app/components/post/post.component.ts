@@ -11,6 +11,8 @@ export class PostComponent{
     @Input()
     content: Post | undefined;   
     show : boolean = false;
+    url : boolean = false;
+    tipo : boolean = false;
 }
 
 export type Post = {
