@@ -8,20 +8,20 @@ import { Comment } from 'src/app/components/comment/comment.component';
 })
 export class PostServiceService {
   vote_post(id: number) {
-    let url = 'http://3.237.175.118:8080/posts/' + id + '/vote';
-    const headers = { 'X-API-KEY': 'CNG0dlVS4LmVM1chV5Zp27HSY50qx39h', 'accept': 'application/json','Content-Type': 'application/json'};
+    let url = 'https://hackernews-2020-21.herokuapp.com/posts/' + id + '/vote';
+    const headers = { 'X-API-KEY': 'cVJ7IlGrX3nu7sFfT8tWsx8pp9OXY57A', 'accept': 'application/json','Content-Type': 'application/json'};
     return this.http.post<any>(url, { headers });  
   }
 
   vote_comment(id: number) {
     let url = 'https://hackernews-2020-21.herokuapp.com/comments/' + id + '/vote';
-    const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+    const headers = { 'X-API-KEY': 'cVJ7IlGrX3nu7sFfT8tWsx8pp9OXY57A', 'accept': 'application/json','Content-Type': 'application/json'};
     return this.http.post<any>(url, { headers });  
   }
 
   reply(comment: string, id: number) {
     let url = 'https://hackernews-2020-21.herokuapp.com/comments/new/' + id;
-    const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+    const headers = { 'X-API-KEY': 'cVJ7IlGrX3nu7sFfT8tWsx8pp9OXY57A', 'accept': 'application/json','Content-Type': 'application/json'};
     const body = {content: comment,
                   parent_id: id};
     return this.http.post<any>(url, body, { headers });
@@ -29,7 +29,7 @@ export class PostServiceService {
   
   comment(comment: string, id: number) {
     let url = 'https://hackernews-2020-21.herokuapp.com/comments/';
-    const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+    const headers = { 'X-API-KEY': 'cVJ7IlGrX3nu7sFfT8tWsx8pp9OXY57A', 'accept': 'application/json','Content-Type': 'application/json'};
     const body = {content: comment,
                   post_id: id};
     return this.http.post<any>(url, body, { headers });
@@ -37,7 +37,7 @@ export class PostServiceService {
 
   post(titulo:string, texto: string, urlparameter:string){
     let url = 'https://hackernews-2020-21.herokuapp.com/posts/';
-    const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+    const headers = { 'X-API-KEY': 'cVJ7IlGrX3nu7sFfT8tWsx8pp9OXY57A', 'accept': 'application/json','Content-Type': 'application/json'};
     const body = {title: titulo,
                   text: texto,
                   url: urlparameter};

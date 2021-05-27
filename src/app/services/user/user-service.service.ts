@@ -25,7 +25,7 @@ export class UserServiceService {
 
   changeAbout(id: number, about: string){
     let url = 'https://hackernews-2020-21.herokuapp.com/users/' + id;
-    const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+    const headers = { 'X-API-KEY': 'cVJ7IlGrX3nu7sFfT8tWsx8pp9OXY57A', 'accept': 'application/json','Content-Type': 'application/json'};
     const body = {about: about};
     return this.http.put<any>(url, body, { headers });
 
