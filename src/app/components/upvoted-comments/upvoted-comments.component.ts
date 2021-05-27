@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { PostServiceService } from 'src/app/services/post/post-service.service';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
-import { User } from '../user/user.component';
 import { Comment } from '../comment/comment.component';
 import {ActivatedRoute} from "@angular/router";
 
@@ -12,27 +11,25 @@ import {ActivatedRoute} from "@angular/router";
 })
 
 export class UpvotedCommentsComponent  {  
-    private user: User | undefined;
     private comments: Comment[] = []; 
     
     constructor(private postService:PostServiceService, private userService:UserServiceService, private route: ActivatedRoute){
       
       this.route.params.subscribe( params => {
   
-       this.userService.getMyProfile(params['id']).subscribe(data=>{
-          this.user=data;
-      })
-  
       this.postService.getUpvotedComments(params['id']).subscribe(data=>{
           this.comments=data;
+          this.comments.forEach(comment => {
+            if(comment.user_id)
+            this.userService.getMyProfile(comment.user_id).subscribe(data=>{
+              comment.full_name = data.full_name;
+              comment.image = data.avatar_url;
+            })
+          });
       })
   
       } );
   
-    }
-  
-    get getUser(){
-      return this.user;
     }
   
     get getUserComments(){

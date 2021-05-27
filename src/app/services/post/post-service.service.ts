@@ -58,18 +58,6 @@ export class PostServiceService {
       return this.http.get<Comment[]>(url, {headers: headers});
     }
 
-    getUpvotedComments(id:number){
-      let url = 'https://hackernews-2020-21.herokuapp.com/upvoted/comments/' + id;
-  
-      const headers = new HttpHeaders({
-        
-        Accept: 'application/json'
-      
-      });
-    
-      return this.http.get<Comment[]>(url, {headers: headers});
-    }
-      
     getUserSubmissions(id:number){
       let url = 'https://hackernews-2020-21.herokuapp.com/submissions/' + id;
 
@@ -85,14 +73,19 @@ export class PostServiceService {
     getUpvotedSubmissions(id:number){
       let url = 'https://hackernews-2020-21.herokuapp.com/upvoted/submissions/' + id;
 
-      const headers = new HttpHeaders({
-        
-        Accept: 'application/json'
-      
-      });
-    
+      const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+
       return this.http.get<Post[]>(url, {headers: headers});
     }
+
+    getUpvotedComments(id:number){
+      let url = 'https://hackernews-2020-21.herokuapp.com/upvoted/comments/' + id;
+      
+      const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+    
+      return this.http.get<Comment[]>(url, {headers: headers});
+    }
+      
 
     getNewest() {
       let url = 'https://hackernews-2020-21.herokuapp.com/newest';

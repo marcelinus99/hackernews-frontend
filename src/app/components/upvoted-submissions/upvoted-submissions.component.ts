@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { UserServiceService } from 'src/app/services/user/user-service.service';
+import { Component } from '@angular/core';
 import { PostServiceService } from 'src/app/services/post/post-service.service';
-//import { User } from '../user/user.component';
+import { UserServiceService } from 'src/app/services/user/user-service.service';
 import { Post } from '../post/post.component';
 import {ActivatedRoute} from "@angular/router";
 
@@ -12,20 +11,21 @@ import {ActivatedRoute} from "@angular/router";
 })
 
 export class UpvotedSubmissionsComponent {
-
-  //private user: User | undefined; 
-  private posts: Post[] = [];
+   private posts: Post[] = [];
 
     constructor(private postService:PostServiceService, private userService:UserServiceService, private route: ActivatedRoute){
     
       this.route.params.subscribe( params => {
-  
-        //this.userService.getMyProfile(params['id']).subscribe(data=>{
-          //this.user=data;
-      //})
-      
+
        this.postService.getUpvotedSubmissions(params['id']).subscribe(data=>{
           this.posts=data;
+          this.posts.forEach(post => {
+            if(post.user_id)
+            this.userService.getMyProfile(post.user_id).subscribe(data=>{
+              post.full_name = data.full_name;
+              post.image = data.avatar_url;
+            })
+          });
       })
 
   
@@ -33,10 +33,6 @@ export class UpvotedSubmissionsComponent {
   
     }
 
-  //get getUser(){
-      //return this.user;
-  //}
-  
   get getUserSubmissions(){
     return this.posts;
   }
