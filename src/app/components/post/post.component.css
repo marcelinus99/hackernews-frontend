@@ -125,18 +125,7 @@
 		
 	.card__author {}
 
-	.comentar i, i {
-		float: left;
-		margin-left: 14px;
-		position: relative;
-		margin-right: 10px;
-		top: 2px;
-		color: #A6A6A6;
-		cursor: pointer;
-		-webkit-transition: color 0.3s ease;
-		-o-transition: color 0.3s ease;
-		transition: color 0.3s ease;
-	}
+
 		.card__author img,
 		.card__author-content {
 			display: inline-block;
@@ -166,4 +155,16 @@
 			content: "\f00d";
 		}
 
+	i {
+		float: left;
+		margin-left: 14px;
+		position: relative;
+		margin-right: 10px;
+		top: 2px;
+		color: #A6A6A6;
+		cursor: pointer;
+		-webkit-transition: color 0.3s ease;
+		-o-transition: color 0.3s ease;
+		transition: color 0.3s ease;
+	}
 

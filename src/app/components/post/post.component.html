@@ -20,7 +20,7 @@
 					<i class="fa fa-heart"></i>	
 				<p> {{content?.upvotes}} people liked this post </p>
 				<br>
-				<button (click)="show=!show">
+				<button (click)="show=!show" >
 					<i class="fa fa-reply"> </i> 
 				</button>
 				<br>
@@ -35,8 +35,10 @@
 			<br>
 			<div *ngIf="show">
 				<form>
-					<input type="text">	
-				</form>			
+					<input type="text" placeholder="Write something...  ">
+					<button type="submit">Comment</button>
+				</form>	
+		
 			</div>
 	</div>
 
