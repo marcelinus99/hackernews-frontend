@@ -17,6 +17,7 @@ export class AskComponent  {
   constructor(private postService:PostServiceService, private userService:UserServiceService){
 
     this.postService.getAsk().subscribe(data=>{
+        
         this.posts=data;
         this.posts.forEach(post => {
           if(post.user_id)
@@ -26,7 +27,7 @@ export class AskComponent  {
           })
         });
     })
-
+   
   }
 
   get getPosts(){

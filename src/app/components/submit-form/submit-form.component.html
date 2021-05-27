@@ -1,11 +1,11 @@
 <header></header>
-<form id="msform">
+<form id="msform" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
     <fieldset>
       <h2 class="fs-title">Create a new post</h2>
-      <input type="text" name="email" placeholder="Title" />
-      <input type="url" name="pass" placeholder="Link" />
-      <input type="text" name="cpass" placeholder="Text" />
-      <input type="button" name="next" class="next action-button" value="Submit" />
+      <input type="text" name="title" placeholder="Title" ngModel />
+      <input type="text" name="text" placeholder="Text" ngModel/>
+      <input type="url" name="url" placeholder="Link" ngModel />
+      <button  type="submit" name="next" class="next action-button" value="Submit"> </button>
       <br>
       <br>
       <p>Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the thread.</p>

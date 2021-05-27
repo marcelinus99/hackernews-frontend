@@ -7,6 +7,16 @@ import { Comment } from 'src/app/components/comment/comment.component';
   providedIn: 'root'
 })
 export class PostServiceService {
+  post(titulo:string, texto: string, urlparameter:string){
+    let url = 'https://hackernews-2020-21.herokuapp.com/posts/';
+    const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+    const body = {title: titulo,
+                  text: texto,
+                  url: urlparameter};
+    return this.http.post<any>(url, body, { headers });
+
+  }
+   
   
   getPostComment(id: number) {
     
