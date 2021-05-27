@@ -10,6 +10,7 @@ import { Component, Input } from '@angular/core';
 export class PostComponent{
     @Input()
     content: Post | undefined;   
+    show : boolean = false;
 }
 
 export type Post = {

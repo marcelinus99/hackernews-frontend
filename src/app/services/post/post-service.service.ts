@@ -22,7 +22,7 @@ export class PostServiceService {
 
     
     getUserComments(id:number){
-      let url = 'https://hackernews-2020-21.herokuapp.com/comments/' + id;
+      let url = 'https://hackernews-2020-21.herokuapp.com/user_comments/' + id;
   
       const headers = new HttpHeaders({
         

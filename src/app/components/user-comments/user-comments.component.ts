@@ -18,7 +18,7 @@ export class UserCommentsComponent {
     
     this.route.params.subscribe( params => {
 
-      this.postService.getPostComment(params['id']).subscribe(data=>{
+      this.postService.getUserComments(params['id']).subscribe(data=>{
         this.comments=data;
         var p = this.comments;
         p.forEach(comment => {
