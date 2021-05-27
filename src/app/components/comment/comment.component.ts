@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SystemJsNgModuleLoader } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostServiceService } from 'src/app/services/post/post-service.service';
 
@@ -10,7 +10,7 @@ import { PostServiceService } from 'src/app/services/post/post-service.service';
 
 export class CommentComponent {
   @Input()
-  content: Comment | undefined;   
+  content!: Comment;   
   show : boolean = false;
 
   private id: number = 0;
@@ -22,8 +22,10 @@ export class CommentComponent {
     } );
   }
 
+
   onSubmit(value: any) {
-    this.postService.reply(value.comment, 32).subscribe();
+    
+    this.postService.reply(value.comment, this.content.id).subscribe();
     this.router.navigate(['/post/'+this.id]);
     
   }
@@ -35,7 +37,7 @@ export class CommentComponent {
 }
 
 export type Comment = {
-  id: number | undefined,
+  id: number | 0,
   content: string | undefined,
   user_id: number | undefined,
   post_id: number | undefined,
