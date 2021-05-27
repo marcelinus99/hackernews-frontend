@@ -19,6 +19,7 @@ import { UserSubmissionsComponent } from './components/user-submissions/user-sub
 import { UpvotedCommentsComponent } from './components/upvoted-comments/upvoted-comments.component';
 import { UpvotedSubmissionsComponent } from './components/upvoted-submissions/upvoted-submissions.component';
 import { SubmitFormComponent } from './components/submit-form/submit-form.component';
+import { CommentBoxComponent } from './components/comment-box/comment-box.component';
 
 
 const routes: Routes = [
@@ -53,7 +54,8 @@ const routes: Routes = [
     UserSubmissionsComponent,
     UserCommentsComponent,
     CommentComponent,
-    SubmitFormComponent
+    SubmitFormComponent,
+    CommentBoxComponent
   ],
   imports: [
     BrowserModule,

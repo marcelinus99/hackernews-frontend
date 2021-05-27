@@ -12,8 +12,8 @@
 						<div class="comment-head">
 							<h6 class="comment-name by-author"><a href="/user/{{content?.user_id}}">{{content?.full_name}}</a></h6>
 							<span>{{content?.created_at | date:'medium'}}</span>
-							<a href="/ask"><i class="fa fa-reply"></i></a>
-							<a href="/ask"><i class="fa fa-heart"></i></a>
+							<button (click)="show=!show" ><i class="fa fa-reply"></i></button>
+							<i class="fa fa-heart"></i>
 						</div>
 						<div class="comment-content">
 							{{content?.content}}	
@@ -21,7 +21,11 @@
 					</div>
 				</div>
 			</li>
-
-			
+			<div *ngIf="show">
+				<form id="msform" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+					<input type="text" name="comment" placeholder="Write something...  "  ngModel >
+					<button type="submit" (click)="reloadCurrentPage()">Comment</button>
+				</form>	
+			</div>
 		</ul>
 	</div>

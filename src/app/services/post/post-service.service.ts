@@ -7,6 +7,21 @@ import { Comment } from 'src/app/components/comment/comment.component';
   providedIn: 'root'
 })
 export class PostServiceService {
+  reply(comment: string, id: number) {
+    let url = 'https://hackernews-2020-21.herokuapp.com/comments/new/' + id;
+    const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+    const body = {content: comment,
+                  parent_id: id};
+    return this.http.post<any>(url, body, { headers });
+  }
+  comment(comment: string, id: number) {
+    let url = 'https://hackernews-2020-21.herokuapp.com/comments/';
+    const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+    const body = {content: comment,
+                  post_id: id};
+    return this.http.post<any>(url, body, { headers });
+  }
+
   post(titulo:string, texto: string, urlparameter:string){
     let url = 'https://hackernews-2020-21.herokuapp.com/posts/';
     const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
