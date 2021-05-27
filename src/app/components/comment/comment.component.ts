@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { PostServiceService } from 'src/app/services/post/post-service.service';
 
 @Component({
@@ -10,23 +10,21 @@ import { PostServiceService } from 'src/app/services/post/post-service.service';
 
 export class CommentComponent {
   @Input()
-  content: Comment | undefined;   
+  content!: Comment;   
   show : boolean = false;
 
-  private id: number = 0;
-
-  constructor(private postService:PostServiceService, private router: Router, private route: ActivatedRoute ) {
-  
-    this.route.params.subscribe( params => {
-      this.id = params['id'];
-    } );
+  constructor(private postService:PostServiceService, private router: Router ) {
   }
 
   onSubmit(value: any) {
     this.postService.reply(value.comment, 32).subscribe();
-    this.router.navigate(['/post/'+this.id]);
-    
+    this.router.navigate(['/post/'+this.content.id]);
   }
+
+  onVote(){
+    this.postService.vote_comment(this.content.id).subscribe();
+  }
+
 
   reloadCurrentPage() {
     window.location.reload();
@@ -35,7 +33,7 @@ export class CommentComponent {
 }
 
 export type Comment = {
-  id: number | undefined,
+  id: number | 0,
   content: string | undefined,
   user_id: number | undefined,
   post_id: number | undefined,

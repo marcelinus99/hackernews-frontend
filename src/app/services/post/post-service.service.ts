@@ -7,6 +7,18 @@ import { Comment } from 'src/app/components/comment/comment.component';
   providedIn: 'root'
 })
 export class PostServiceService {
+  vote_post(id: number) {
+    let url = 'http://3.237.175.118:8080/posts/' + id + '/vote';
+    const headers = { 'X-API-KEY': 'CNG0dlVS4LmVM1chV5Zp27HSY50qx39h', 'accept': 'application/json','Content-Type': 'application/json'};
+    return this.http.post<any>(url, { headers });  
+  }
+
+  vote_comment(id: number) {
+    let url = 'https://hackernews-2020-21.herokuapp.com/comments/' + id + '/vote';
+    const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
+    return this.http.post<any>(url, { headers });  
+  }
+
   reply(comment: string, id: number) {
     let url = 'https://hackernews-2020-21.herokuapp.com/comments/new/' + id;
     const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};
@@ -14,6 +26,7 @@ export class PostServiceService {
                   parent_id: id};
     return this.http.post<any>(url, body, { headers });
   }
+  
   comment(comment: string, id: number) {
     let url = 'https://hackernews-2020-21.herokuapp.com/comments/';
     const headers = { 'X-API-KEY': 'mKmm51zupywCiNdmgRAjPvBxOXpsc77u', 'accept': 'application/json','Content-Type': 'application/json'};

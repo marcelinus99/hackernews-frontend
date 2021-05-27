@@ -10,6 +10,14 @@ export class UserComponent{
   @Input()
   content: User | undefined; 
   condition = 1;
+
+  onSubmit(value: any) {
+
+  }
+  
+  reloadCurrentPage() {
+    window.location.reload();
+  }
 }
 
 export type User = {
@@ -23,3 +31,4 @@ export type User = {
   api_key: string | undefined,
   about: string | undefined
 }
+

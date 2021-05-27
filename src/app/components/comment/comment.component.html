@@ -13,7 +13,9 @@
 							<h6 class="comment-name by-author"><a href="/user/{{content?.user_id}}">{{content?.full_name}}</a></h6>
 							<span>{{content?.created_at | date:'medium'}}</span>
 							<button (click)="show=!show" ><i class="fa fa-reply"></i></button>
-							<i class="fa fa-heart"></i>
+							<button (click)="onVote()" type="submit" name="next">
+								<i class="fa fa-heart"> </i>
+							</button>	
 						</div>
 						<div class="comment-content">
 							{{content?.content}}	

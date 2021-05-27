@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { PostServiceService } from 'src/app/services/post/post-service.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'post',
@@ -8,14 +11,23 @@ import { Component, Input } from '@angular/core';
 
 export class PostComponent{
     @Input()
-    content: Post | undefined;   
+    content!: Post;   
     show : boolean = false;
     url : boolean = false;
     tipo : boolean = false;
+
+    constructor(private postService:PostServiceService, private router: Router) {
+  }
+
+    onSubmit() {
+      this.postService.vote_post(this.content.id).subscribe();
+      //this.router.navigate(['/news']);
+    }
+  
 }
 
 export type Post = {
-    id: number | undefined,
+    id: number | 0,
     title: string | undefined,
     tipo: string | undefined,
     url: string | undefined,

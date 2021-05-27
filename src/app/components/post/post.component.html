@@ -19,9 +19,11 @@
 					{{content?.text}}
 				<br>
 				<br>
-					<i class="fa fa-heart"></i>	
-				<p> {{content?.upvotes}} people liked this post </p>
-				<br>
+					<button (click)="onSubmit()" type="submit" name="next">
+						<i class="fa fa-heart"> </i>
+					</button>	
+					{{content?.upvotes}} people liked this post
+					<br>
 				<button (click)="show=!show" >
 					<i class="fa fa-reply"> </i> 
 				</button>

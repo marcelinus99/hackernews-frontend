@@ -12,7 +12,7 @@ import { UserServiceService } from 'src/app/services/user/user-service.service';
 })
 export class PostShowComponent {
 
-  private post: Post | undefined;
+  private post!: Post;
   private comments: Comment[] = []; 
   
   constructor(private postService:PostServiceService, private userService:UserServiceService, private route: ActivatedRoute){

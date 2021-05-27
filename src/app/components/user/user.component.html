@@ -13,7 +13,10 @@
 			</div>
 		   <div class="user-profile-data">
 			 <h1>{{content?.full_name}}</h1>
-			 <p>{{content?.about}}</p>
+			 <form id="msform" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+				<input type="text" name="comment" placeholder={{content?.about}}  ngModel >
+				<button type="submit" (click)="reloadCurrentPage()">Change about</button>
+			</form>	
 			 <p>{{content?.email}}</p>
 			 <p>{{content?.created_at | date:'medium'}}</p>
 		   </div> 
